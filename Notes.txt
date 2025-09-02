@@ -1,0 +1,111 @@
+Introduction to React 
+
+Developing SPA - Single Page Application [Authentication/Authorization] [MERN - MongoDB/Express/React JS/Node JS]
+
+functions written with function keyword - has implicit binding with "this" keyword and because of implicit binding the owner of this keyword may get changed place to place
+
+functions written with arrow function syntax - does not have implicit binding with "this" keyword hence the context/owner change will never happen
+
+for example - 
+
+const Customer={
+
+	customerId:1000,
+	contactName:"Pravinkumar R. D.",
+	city:"Pune",
+	printCustomer:function(){
+		setTimeout(()=>{
+			console.log(`{this.contactName}`);
+		},2000);
+	}
+}
+
+Window.setTime()
+
+Customer.printCustomer(); //Pravinkumar R. D.
+
+
+
+Components in React - 
+Till 16.7 - 
+	lass Component - Container/Stateful/Smart/Class
+	unctional Component - Presentation/Stateless/Dumb/Function
+
+16.8 and onwards - Functional Component recommended by React team which use hooks
+	
+
+Installation - 
+
+	1) Node JS LTS version
+		https://nodejs.org/en/download
+	2) Visual Studio Code
+		https://code.visualstudio.com/download
+	3) MongoDB Community Server
+		https://www.mongodb.com/try/download/community
+	4) Mongo Shell
+		https://www.mongodb.com/try/download/shell
+
+
+
+Preferred Language is JSX - JavaScript Extension
+
+	Component file extensions will always .JSX
+	Component Name [File] should be Capital Camel Casing [HelloWorld.jsx]
+	Per Component create its external CSS file [HelloWorld.css]
+
+
+ESM - ECMAScript Module is a JavaScript file which contains [import and export statements] [.js/jsx/ts/tsx]
+
+Export - default export and named export
+	only one default export per module
+	as many named exports as you want
+
+	named exports while importing must be enclosed in {one, two, three}
+	default export will be imported without {} brackets
+
+Configure Bootstrap CSS Framework - 
+
+npm install bootstrap
+
+main.jsx  
+
+//third-party Framework 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+In React - All CSS properties are defined as camelCase properties
+	for Example - textAlign:'center'
+
+Custom CSS - 
+	1) In-line CSS - with the help of style attribute
+	2) Document level CSS
+	3) External CSS as a module [CSS As-A Module]
+		FileName.module.css
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
