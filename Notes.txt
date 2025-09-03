@@ -28,8 +28,8 @@ Customer.printCustomer(); //Pravinkumar R. D.
 
 Components in React - 
 Till 16.7 - 
-	lass Component - Container/Stateful/Smart/Class
-	unctional Component - Presentation/Stateless/Dumb/Function
+	Class Component - Container/Stateful/Smart/Class
+	Functional Component - Presentation/Stateless/Dumb/Function
 
 16.8 and onwards - Functional Component recommended by React team which use hooks
 	
@@ -83,16 +83,237 @@ Custom CSS -
 		FileName.module.css
 		
 		
+Day-1 Assignments - 
+
+	1) Create React application using Vite - 
+		thales-group-events-portal
+	2) Configure Bootstrap CSS Framework
+
+Day-2
+
+React Hooks are functions!
+
+useState(initialStateValue) =>[state,funcToChangeState]
+
+Destructuring syntax [Array/Object] [ES6]
+const [counter,setCounter] = useState(0);
+
+const {value,setValue}=function(); =>{value,changeValueFunc}
+
+
+State object is modified asynchronously 
+
+Structure of React Application - 
+Feature-wise Folder Structure 
+src
+	Events
+		Components
+			EventsList.jsx
+			EventDetails.jsx
+			RegisterEvent.jsx
+			...
+		Services
+			EventsService.js [Functions]
+	Employees
+		Components
+			EmpoyeesList.jsx
+			EmployeeDetails.jsx
+			RegisterEmployee.jsx
+			...
+		Services
+			EmployeesService.js [Functions]
+	Security
+		Components
+			Login.jsx
+			Register.jsx
+			ForgotPassword.jsx
+			ChangePassword.jsx
+		Services
+			SecurityService.js [Functions]
+	Home
+		Components
+			ThalesHome.jsx
+	Navigation
+		Components
+			Navbar.jsx
+			Footer.jsx
+		Services
+	Shared
+		Components
+			NotFount.jsx
+			Unauthorized.jsx
+			Forbidden.jsx
+		Utilities 
+			Globalization.js
+
+
+
+Day-2 Assignments - 
+	1) Add EmployeesList, EmployeeDetails components in events portal application and use service to fetch the data for each one of them
+		a) Using useState() hook
+		b) Using useReducer() hook
+
+
+useState() - Maintain state in functional component. 
+	use it when you are maintain simple state [primitive types - Number, Boolean, String]
+	use it when you want component to control the state
+
+useReducer() - Maintain state in functional component. 
+	use it when you have complex logic involved while changing the state
+	use it when you want the state change to be isolated from the component and reuse the same logic in other components too!
+
+
+This function is responsible for managing the state object [updating/initialization]
+
+const InitialState={
+	events:[],
+	eventId:0
+}
+
+function reducer(state = InitialState, action){
+	switch(action.type){
+		case:'FETCH_ALL_EVENTS'
+			state={
+				...state,
+				events: action.payload
+			}
+			break;
+		case:'FETCH_EVENT_DETAILS_ID':
+			state={
+				...state,
+				eventId: action.payload
+			}
+			break;
+		default:
+			break;
+	}
+	return state;
+}
+
+the second parameter is action which is an object - 
+	{ type: 'FETCH_ALL_EVENTS', payload: data }
+
+Component "dispatch" the action - { type: 'FETCH_ALL_EVENTS', payload: data }, it goes to the reducer function to handle the action of a given type and update the state with the payload
+
+
+RDBMS [SQL] Servers						NoSQL Database Servers
+	Microsoft SQL Server, MySQL, Oracle,...				MongoDB
+		Databases							Databases
+			Table								Collection
+				Cols/Rows							Documents
+
+
+
+What is document?
+Document is a JSON like object. For Example - 
+{
+	_id: akjdbksali89oia899
+	property: value,
+	property: value,
+	property: {
+		property: value,
+		property: [1,2,3]
+	},
+	property: value
+}
+
+
+To manipulate the documents, MongoDB provides number of functions which follows camel casing and data is case sensitive.
+
+Write queries - 
+1) Show all existing databases - 
+	show dbs;
+2) How to create new database?
+	 use thales-group-events-db;
+3) How to add new collection in a connected database?
+	db.createCollection("events");
+	db.createCollection("employees");
+	db.createCollection("users");
+4) Display all the collection
+	show collections;
+5) Insert document(s) in a collection
+	db.users.insertOne({email:"alisha.c@thales.com",password:"Welcome@123",role:"Hr"}); 
+	db.users.insertOne({email:"manish.kaushik@thales.com",password:"Welcome@123",role:"Employee"});
+	Bulk insertion
+	db.events.insertMany([...]);
+	db.employees.insertMany([
+        {
+            employeeId: 2370,
+            employeeName: "Pravinkumar R. D.",
+            address: "Suncity, A8/404",
+            city: "Pune",
+            zipcode: 411051,
+            phone: "+91 23892893",
+            email: "pravin.r.d@synechron.com",
+            skillSets: "Microsoft/JavaScript",
+            country: "India",
+            joiningDate:new Date(),
+            avatar: "images/noimage.png"
+        },
+        {
+            employeeId: 2372,
+            employeeName: "Manish Kaushik",
+            address: "Mooncity, Z8/404",
+            city: "Raipur",
+            zipcode: 459899,
+            phone: "+91 9039039090",
+            email: "manish.kaushik@synechron.com",
+            skillSets: "DBA",
+            country: "India",
+            joiningDate:new Date(),
+            avatar: "images/noimage.png"
+        },
+        {
+            employeeId: 2374,
+            employeeName: "Alisha C.",
+            address: "Mooncity, B8/404",
+            city: "Mumbai",
+            zipcode: 510512,
+            phone: "+91 30003000",
+            email: "alisha.c@synechron.com",
+            skillSets: "Java",
+            country: "India",
+            joiningDate:new Date(),
+            avatar: "images/noimage.png"
+        }
+    ]);
+ 
+6) How to query collection data?
+	db.users.find();
+	db.events.find();
+	db.employees.find();
+	
+	db.users.find({role:'Hr'});
+
+	db.users.findOne();
+
+	db.events.findOne({eventId:1003});
+
+7) How to update a document?
+
+8) Delete document(s)?
+	db.users.deleteOne({role:'Hr'});
+	db.users.deleteMany({});
 
 
 
 
+REST API - thales-events-service
 
+	To run the API, open VS Code Terminal with CMD Prompt and run the below command - 
 
+		node events-rest-server.js
 
+	http://localhost:9090/api/employees [GET]
+	http://localhost:9090/api/employees/2370 [GET]
+	htp://localhost:9090/api/employees [POST]
 
+	http://localhost:9090/api/events [GET]
+	http://localhost:9090/api/events/1001 [GET]
+	htp://localhost:9090/api/event [POST]
 
-
+	http://localhost:9090/api/users [POST] 
+	http://localhost:9090/api/users/authenticate [POST] 
 
 
 
