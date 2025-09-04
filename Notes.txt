@@ -1,3 +1,8 @@
+Trainer Name  - Pravinkumar Dabade
+Email - dabade.pravinkumar@gmail.com
+Contact # - 9665622460
+
+
 Introduction to React 
 
 Developing SPA - Single Page Application [Authentication/Authorization] [MERN - MongoDB/Express/React JS/Node JS]
@@ -310,19 +315,63 @@ REST API - thales-events-service
 
 	http://localhost:9090/api/events [GET]
 	http://localhost:9090/api/events/1001 [GET]
-	htp://localhost:9090/api/event [POST]
+	http://localhost:9090/api/event [POST]
 
 	http://localhost:9090/api/users [POST] 
 	http://localhost:9090/api/users/authenticate [POST] 
 
 
+Complete Page Post Back [Full Page render]
+Partial Page Rendering
+
+Single Page Application [SPA] Development
+
+Routing library [react-router-dom/react-router]
+	1) Route Declaration [Routes and Route]
+		http://localhost:5173 [Default] [Default/Home Component]
+		http://localhost:5173/home [Named Routes] [ThalesHome Component]
+		http://localhost:5173/employees [Named Routes] [EmployeesList Component]
+		http://localhost:5173/employees/profile [Named Routes] [EmployeesList Component]
+		http://localhost:5173/employees/2372 [Dynamic Route/Parameterized Route] [EmployeeDetails Component]
+			useParams()
+		Or
+		http://localhost:5173/employees?employeeId=2892
+			useSearchParams()
+		http://localhost:5173/events [Named Routes] [EventsList Component]
+		http://localhost:5173/events/1002 [Dynamic Route/Parameterized Route] [EventDetails Component]
+		http://localhost:5173/login [Named Routes] [Login Component]
+		http://localhost:5173/signup [Named Routes] [Signup Component]
+		
+	2) Programmatic Redirections/Navigations
+		Hook to call routes dynamically - useNavigate()
+
+	3) Declarative Redirection/Navigation using in-build components from react-router library
+		Components to call routes [NavLink, Link]
+	4) Route Protection
+		/login?returnurl=/events
+	5) Number of Hooks for route accessibility and manipulation
+
+	6) Provides number of components which we can use during route configuration
+		<outlet/> - used for rendering children routes/nested routes
 
 
 
+Security - JSON Web Token you can store it in form of Cookie and API needs to implement this cookie as Http Only Cookie
 
 
+Parent and Children Routes 
 
+React Context API which provides two things - 
 
+Class components as well as Functional Component
+
+Provider - Provide the access to the state object
+
+Consumer - Will receive the state from the Provider
+
+<Layout>
+	{children}
+</Layout>
 
 
 
